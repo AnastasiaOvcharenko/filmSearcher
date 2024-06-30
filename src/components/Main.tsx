@@ -1,11 +1,15 @@
+"use client";
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
 import styles from "./Main.module.css";
 import useDebounce from "../hooks/useDebounce";
-import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
 import Loader from "./Loader";
 import Pagination from "./Pagination";
 import { useGetMoviesQuery } from "../redux/api";
+
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
 
 export default function Main() {
   type Actor = {
@@ -25,7 +29,9 @@ export default function Main() {
     actors: Actor[];
   }
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
+
+  const searchParams = useSearchParams();
   // const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   // const [movies, setMovies] = useState<Movie[]>([]);
@@ -36,13 +42,13 @@ export default function Main() {
   const debouncedSearch = useDebounce(searchQuery);
 
   const filters = [];
-  searchParams.get("query") &&
+  searchParams.has("query") &&
     filters.push(`title=${searchParams.get("query")}`);
-  searchParams.get("year") &&
+  searchParams.has("year") &&
     filters.push(`release_year=${searchParams.get("year")}`);
-  searchParams.get("genre") &&
+  searchParams.has("genre") &&
     filters.push(`genre=${searchParams.get("genre")}`);
-  searchParams.get("currentPage") &&
+  searchParams.has("currentPage") &&
     filters.push(`page=${searchParams.get("currentPage")}`);
 
   const {
@@ -55,19 +61,30 @@ export default function Main() {
   const totalPages = moviesResult?.total_pages;
   // setTotalPages(moviesResult.total_pages);
 
+  const router = useRouter();
+  const pathname = usePathname();
+
   useEffect(
     function () {
-      if (debouncedSearch === "") searchParams.delete("query");
-      const newSearchParams = new URLSearchParams(searchParams);
+      // if (debouncedSearch === "") searchParams.delete("query");
+      // const newSearchParams = new URLSearchParams(searchParams);
+      // debouncedSearch && newSearchParams.set("query", debouncedSearch);
+      // currentPage && newSearchParams.set("currentPage", `${currentPage}`);
+      // setSearchParams(newSearchParams);
+
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      if (debouncedSearch === "") newSearchParams.delete("query");
       debouncedSearch && newSearchParams.set("query", debouncedSearch);
       currentPage && newSearchParams.set("currentPage", `${currentPage}`);
-      setSearchParams(newSearchParams);
+
+      router.push(pathname + "?" + newSearchParams);
+      // window.history.replaceState({}, '', newUrl);
     },
-    [debouncedSearch, setSearchParams, searchParams, currentPage]
+    [debouncedSearch, currentPage, pathname, router]
   );
 
   // console.log(totalPages && !isLoading);
-  console.log(totalPages);
+  // console.log(totalPages);
 
   if (error) {
     return <h1>Error</h1>;

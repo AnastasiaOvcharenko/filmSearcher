@@ -1,3 +1,4 @@
+"use client";
 import ReactDOM from "react-dom";
 import styles from "./AuthModal.module.css";
 import Button from "./Button";

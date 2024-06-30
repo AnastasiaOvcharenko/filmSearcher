@@ -1,12 +1,14 @@
+"use client";
 import { useEffect, useState } from "react";
 import styles from "./Movie.module.css";
 import UserRating from "./UserRating";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuthenticated } from "../redux/authSelectors";
 import { rateThunk } from "../redux/ratingsThunks";
 import { selectRatingByMovieId } from "../redux/ratingsSelector";
 import useDebounce from "../hooks/useDebounce";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface Movie {
   id: string;
@@ -25,7 +27,7 @@ export interface MovieProps {
 
 export default function Movie({ movie }: MovieProps) {
   const [rating, setRating] = useState(0);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthorised = useSelector((state) => selectIsAuthenticated(state));
   const defaultRating = useSelector((state) =>
@@ -43,10 +45,20 @@ export default function Movie({ movie }: MovieProps) {
     [debouncedRating, dispatch, movie?.id]
   );
 
+  const router = useRouter();
+  // const pathname = usePathname();
+
   return (
+    // <Link
+    //   href={
+    //     // <pathname>?sort=desc
+    //     "/movie/" + movie.id
+    //   }
+    // >
     <div
       className={styles.movieCard}
-      onClick={() => navigate(`/movie/${movie.id}`)}
+      onClick={() => router.push("/movie/" + movie.id)}
+      // onClick={() => navigate(`/movie/${movie.id}`)}
     >
       {isAuthorised ? (
         <UserRating
@@ -59,8 +71,8 @@ export default function Movie({ movie }: MovieProps) {
       <div>
         <img
           className={styles.moviePoster}
-          src={movie.poster}
-          alt={`Обложка фильма ${movie.title}`}
+          src={movie?.poster}
+          alt={`Обложка фильма ${movie?.title}`}
         />
       </div>
       <div className={styles.movieCardInfo}>
@@ -79,5 +91,6 @@ export default function Movie({ movie }: MovieProps) {
         </div>
       </div>
     </div>
+    // </Link>
   );
 }

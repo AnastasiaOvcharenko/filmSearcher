@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import UserRating from "./UserRating";
 import styles from "./MovieInfo.module.css";
@@ -6,6 +7,7 @@ import { selectIsAuthenticated } from "../redux/authSelectors";
 import { rateThunk } from "../redux/ratingsThunks";
 import { selectRatingByMovieId } from "../redux/ratingsSelector";
 import useDebounce from "../hooks/useDebounce";
+import Image from "next/image";
 
 interface Movie {
   id: string;
@@ -48,7 +50,7 @@ export default function MovieInfo({ movie }) {
         ""
       )}
       <div>
-        <img
+        <Image
           className={styles.moviePoster}
           src={movie.poster}
           alt={`Обложка фильма ${movie.title}`}

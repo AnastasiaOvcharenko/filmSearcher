@@ -1,3 +1,4 @@
+"use client";
 // import React from "react";
 // import styles from "./Pagination.module.css";
 
@@ -91,7 +92,6 @@ const Pagination: React.FC<PaginationProps> = ({
     }
   };
 
-  console.log("test");
 
   return (
     <div className={styles.pagination}>

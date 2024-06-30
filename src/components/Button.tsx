@@ -1,3 +1,4 @@
+"use client";
 import { Dispatch } from "react";
 import styles from "./Button.module.css";
 

@@ -7,6 +7,6 @@ export const rateThunk = createAsyncThunk(
   async (payload: { movieId: string; rating: number }, { dispatch }) => {
     dispatch(setRating({ movieId: payload.movieId, rating: payload.rating }));
     const res = await dispatch(api.endpoints.rateMovie.initiate(payload));
-    console.log(res);
+    // console.log(res);
   }
 );

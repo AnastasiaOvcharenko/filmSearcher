@@ -1,7 +1,8 @@
+"use client";
 import { useEffect, useState } from "react";
 import { Dropdown } from "./Dropdown";
 import styles from "./Sidebar.module.css";
-import { useSearchParams } from "react-router-dom";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 const GENRES = {
   "0": "Не выбран",
@@ -32,22 +33,21 @@ const YEARS = {
 export default function Sidebar() {
   const [genre, setGenre] = useState("0");
   const [year, setYear] = useState("0");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const searchParams = useSearchParams();
+
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (genre === "0") searchParams.delete("genre");
-    if (year === "0") searchParams.delete("year");
-    const newSearchParams = new URLSearchParams(searchParams);
-    genre !== "0" && newSearchParams.set("genre", genre);
-    year !== "0" && newSearchParams.set("year", year);
-    setSearchParams(newSearchParams);
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    if (genre == "0") newSearchParams.delete("genre");
 
-    // setSearchParams({
-    //   ...searchParams,
-    //   year: year ? year : "",
-    //   genre: genre ? genre : "",
-    // });
-  }, [year, genre, setSearchParams]);
+    if (year == "0") newSearchParams.delete("year");
+    genre != "0" && newSearchParams.set("genre", genre);
+    year != "0" && newSearchParams.set("year", year);
+
+    router.push(pathname + "?" + newSearchParams);
+  }, [year, genre, pathname, router, searchParams]);
 
   return (
     <div className={styles.filterBox}>

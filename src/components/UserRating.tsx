@@ -1,3 +1,4 @@
+"use client";
 import React, { Dispatch, useState } from "react";
 import styles from "./UserRating.module.css";
 
