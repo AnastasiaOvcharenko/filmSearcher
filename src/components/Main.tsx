@@ -29,7 +29,7 @@ export default function Main() {
   // const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   // const [movies, setMovies] = useState<Movie[]>([]);
-  const [totalPages, setTotalPages] = useState(0);
+  // const [totalPages, setTotalPages] = useState(0);
   const [searchQuery, setSearchQuery] = useState<string>(
     searchParams.get("query") || ""
   );
@@ -52,6 +52,8 @@ export default function Main() {
   } = useGetMoviesQuery(filters);
 
   const movies = moviesResult?.search_result;
+  const totalPages = moviesResult?.total_pages;
+  // setTotalPages(moviesResult.total_pages);
 
   useEffect(
     function () {
@@ -63,6 +65,9 @@ export default function Main() {
     },
     [debouncedSearch, setSearchParams, searchParams, currentPage]
   );
+
+  // console.log(totalPages && !isLoading);
+  console.log(totalPages);
 
   if (error) {
     return <h1>Error</h1>;
