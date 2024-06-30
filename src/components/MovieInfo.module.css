@@ -1,0 +1,82 @@
+.movieCard {
+  display: flex;
+  padding: 24px;
+  margin: 16px 32px;
+  gap: 24px;
+  position: relative;
+
+  /* width: 1424px; */
+  border-radius: 8px;
+
+  background-color: #fff;
+}
+
+.moviePoster {
+  width: 400px;
+  height: 500px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.movieCardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.movieTitle {
+  max-width: calc(100% - 112px);
+  text-align: left;
+  margin-bottom: 12px;
+  color: var(--color-dark-grey);
+
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+.movieCardInfoBlock {
+  display: flex;
+  gap: 16px;
+}
+
+.movieCardInfoBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #000;
+}
+
+.movieCardInfoHeader {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  color: var(--color-dark-grey);
+  margin-right: 8px;
+}
+
+.movieCardInfoText {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.movieCardDesc {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}

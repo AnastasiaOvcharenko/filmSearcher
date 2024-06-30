@@ -1,0 +1,45 @@
+.header {
+  background: var(--color-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* top: 16px; */
+  /* left: 16px; */
+  padding: 24px 32px 24px 32px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* width: 100vw; */
+}
+
+.logo {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37.5px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.profilePic {
+  width: 40px; /* Ширина контейнера */
+  height: 40px; /* Высота контейнера */
+  background-color: white; /* Белый фон */
+  border-radius: 50%; /* Круглая форма */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Скрыть всё, что выходит за пределы круга */
+}
+
+.profilePic svg {
+  width: 24px; /* Размер иконки относительно контейнера */
+  height: 24px;
+}
+
+.authBlock {
+  display: flex;
+  gap: 16px;
+}

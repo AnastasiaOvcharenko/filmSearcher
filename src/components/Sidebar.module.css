@@ -1,0 +1,57 @@
+.filterBox {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  /* gap: 12px; */
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.filterMain {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filterRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filterTitle {
+  color: var(--color-dark-grey);
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.filterHeader {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+.input,
+.option {
+  height: 40px;
+  padding: 10px 16px 10px 16px;
+  /* gap: 8px;/ */
+  border-radius: 8px;
+  border: #e1e3e6 1px solid;
+  font-family: Roboto;
+}
+
+.selectPlaceholder {
+  color: var(--color-light-grey);
+}
+
+.input:focus {
+  outline: none;
+  border: var(--color-accent) 1px solid;
+}

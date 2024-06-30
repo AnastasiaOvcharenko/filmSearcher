@@ -1,0 +1,67 @@
+.movieCard {
+  display: flex;
+  padding: 24px;
+  gap: 24px;
+  position: relative;
+
+  /* width: 1424px; */
+  border-radius: 8px;
+
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.moviePoster {
+  width: 100px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.movieCardInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieTitle {
+  max-width: calc(100% - 112px);
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 12px;
+  color: var(--color-dark-grey);
+}
+
+.movieCardInfoBlock {
+  display: flex;
+  gap: 16px;
+}
+
+.movieCardInfoBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #000;
+}
+
+.movieCardInfoHeader {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 12px;
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: var(--color-light-grey);
+}

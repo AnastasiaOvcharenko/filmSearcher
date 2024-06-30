@@ -1,0 +1,90 @@
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 360px;
+  gap: 4px;
+}
+
+.dropdownHeader {
+  cursor: pointer;
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #e1e3e6;
+}
+
+.dropdownHeaderFocus {
+  cursor: pointer;
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #ff5500;
+}
+
+.dropdownHeaderText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.dropdownHeaderTextInactive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #999fa6;
+}
+
+.dropdownHeaderButton {
+  width: 20px;
+  height: 20px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  transform: translateY(72px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+
+  width: 360px;
+
+  padding: 8px;
+
+  border-radius: 8px;
+  border: 1px solid var(--white, #fff);
+  background: var(--background-primary, #fff);
+
+  /* Shadow */
+  box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
+}
+
+.choice {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.choice:hover {
+  background-color: #ddd;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 20px;
+}

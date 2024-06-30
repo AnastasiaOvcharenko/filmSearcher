@@ -1,0 +1,10 @@
+.main {
+  background-color: var(--color-background);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: start;
+  grid-auto-rows: min-content;
+  gap: 24px;
+
+  padding: 16px 24px;
+}

@@ -1,0 +1,56 @@
+.moviesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.input,
+.option {
+  height: 40px;
+  width: 400px;
+  padding: 12px;
+  /* gap: 8px;/ */
+  border-radius: 8px;
+  border: #e1e3e6 1px solid;
+  font-family: Roboto;
+}
+
+/* .selectPlaceholder {
+  color: var(--color-light-grey);
+} */
+
+.input:focus {
+  outline: none;
+  border: var(--color-accent) 1px solid;
+}
+
+.inputIcon {
+  width: 400px;
+  position: relative;
+}
+
+.inputIcon input {
+  padding-left: 36px;
+}
+
+.inputIcon .icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* font-size: 16px; */
+  width: 16px;
+  height: 16px;
+  color: var(--color-light-grey);
+}
+
+.inputClear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,86 @@
+/* Modal.module.css */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+  width: 350px;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  width: 16px;
+  cursor: pointer;
+}
+
+.authHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authHeaderText {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+}
+
+.authInput {
+  height: 40px;
+  padding: 12px;
+  /* gap: 8px;/ */
+  border-radius: 8px;
+  border: #e1e3e6 1px solid;
+  font-family: Roboto;
+  /* color: #ababab; */
+}
+
+.authInput::placeholder {
+  color: #ababab;
+}
+
+.authInput:focus {
+  outline: none;
+  border: var(--color-accent) 1px solid;
+}
+
+.authBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.authBlockName {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #1b1f23;
+}
+
+.authButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.error {
+  border: 1px solid red;
+}
